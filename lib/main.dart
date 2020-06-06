@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import './question.dart';
+import './answer.dart';
 
 void main() => runApp(MyApp());
 
@@ -26,11 +27,18 @@ class _MyAppState extends State {
   Widget build(BuildContext context) {
     // build method get call after we change the index-question in setstate
     var questions = [
-      'What is ur favorite color?',
-      'What is your favorite animal?',
-      'Check Out this video',
-      'Dammm!',
-      'What if I change somthing',
+      {
+        'questionText': 'What\'s your favorite color?',
+        'answer': ['Black', 'Red', 'Red', 'Green'],
+      },
+      {
+        'questionText': 'What\'s your favorite Animal?',
+        'answer': ['Lion', 'Dog', 'Cat', 'Mouse'],
+      },
+      {
+        'questionText': 'What\'s your favorite Instructor?',
+        'answer': ['Lion', 'Dog', 'Cat', 'Mouse'],
+      }
     ];
     return MaterialApp(
         //Widgets tree
@@ -40,10 +48,10 @@ class _MyAppState extends State {
       ),
       body: Column(
         children: [
-          Question(questions[
-              _questionIndex]), // Question is a class in question.dart
-          RaisedButton(child: Text('Answer 1'), onPressed: answerQuestion),
-          RaisedButton(child: Text('Answer 1'), onPressed: answerQuestion),
+          Question(questions[_questionIndex]['questionText']), // Question is a class in question.dart
+          Answer(answerQuestion),
+          Answer(answerQuestion),
+          Answer(answerQuestion),
         ],
       ),
     ));
