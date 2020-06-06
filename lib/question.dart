@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 
 class Question extends StatelessWidget {
-  String questionText;
+  final String questionText; // final will lock the value while runtime
   Question(this.questionText);
   @override
   Widget build(BuildContext context) {
